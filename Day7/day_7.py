@@ -76,28 +76,7 @@ def compareHands(self_hand, other_hand):
     return ret
 
 # I thought the number of J's was determinant to calculate if a hand was lower LOL wtf xD
-
-# def compareHandsPart2(self_hand, other_hand):
-#     ret = False
-#     if self_hand.type < other_hand.type:
-#         ret = True
-#         return ret
-#     elif self_hand.type == other_hand.type:
-#         if self_hand.js > other_hand.js:
-#             ret = True
-#             return ret
-#         if self_hand.js < other_hand.js:
-#             return ret
         
-#         for i, card in enumerate(self_hand.cards):
-#             if card < other_hand.cards[i]:
-#                 ret = True
-#                 break
-#             if card > other_hand.cards[i]:
-#                 break
-#     return ret
-        
-
 @dataclass
 class Hand:
     cards: list[int]
