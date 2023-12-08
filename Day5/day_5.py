@@ -42,10 +42,6 @@ def getLocationValue(from_list, to_list):
     return data_list
 
 
-def generateValidDataWrapper(args):
-    from_list, to_list = args
-    return generateValidData(from_list, to_list)
-
 def process_seed(seed_range, map_list, last_seed, lowest_value):
     for j in tqdm(seed_range, "seed progress"):
         location_list = getLocationValue([last_seed + j], map_list)
@@ -126,7 +122,6 @@ if __name__ == "__main__":
     elif part == 2:
         seeds_to_build = lines[0].split("seeds:")[1].split(" ")
         seeds_to_build = [int(seed.replace('\n', '')) for seed in seeds_to_build if seed != '']
-        # seeds = []
         last_seed = 0
         lowest_value = 0
         for i, seed in tqdm(enumerate(seeds_to_build), "overall progress bar"):
@@ -137,7 +132,7 @@ if __name__ == "__main__":
                     lowest_value = location_list[0]
             else:
                 seed_range = range(1, seed)
-                num_processes = multiprocessing.cpu_count()  # Number of processes
+                num_processes = multiprocessing.cpu_count()
                 chunk_size = len(seed_range) // num_processes
                 chunks = [seed_range[i:i + chunk_size] for i in range(0, len(seed_range), chunk_size)]
 
