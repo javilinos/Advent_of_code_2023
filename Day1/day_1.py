@@ -44,5 +44,4 @@ if __name__ == "__main__":
     for value in values_array:
         result += value
     
-    print(values_array)
     print(result)

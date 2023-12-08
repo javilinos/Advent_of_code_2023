@@ -146,5 +146,5 @@ if __name__ == "__main__":
                     if lowest_value == 0 or lowest_value > result:
                         lowest_value = result
 
-        print(lowest_value)
+        print(f"part1-part2: {lowest_value}")
 

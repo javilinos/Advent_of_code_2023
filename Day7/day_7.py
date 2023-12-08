@@ -1,7 +1,14 @@
 from dataclasses import dataclass
 
-values_part1 = {'A': 14, 'K': 13, 'Q': 12, 'J': 11, 'T': 10}
-values_part2 = {'A': 13, 'K': 12, 'Q': 11, 'T': 10, 'J': 1}
+VALUES_1 = {'A': 14, 'K': 13, 'Q': 12, 'J': 11, 'T': 10}
+VALUES_2 = {'A': 13, 'K': 12, 'Q': 11, 'T': 10, 'J': 1}
+
+
+def readLines(filename):
+    with open(filename, "r") as f:
+        lines = f.readlines()
+    return lines
+
 
 def repeatedCards(card, cards):
     return len([c for c in cards if c == card])
@@ -86,20 +93,14 @@ class Hand:
 
     def __lt__(self, other_hand):
         return compareHands(self, other_hand)
-
-
-def readLines(filename):
-    with open(filename, "r") as f:
-        lines = f.readlines()
-    return lines
-
+    
 
 if __name__ == "__main__":
     lines = readLines("input.txt")
     hand_list = []
     for line in lines:
         hand_str = line.split()[0]
-        hand_list.append(Hand([int(hand) if hand.isnumeric() else values_part1[hand] for hand in hand_str], getType(hand_str), int(line.split()[1]), 0))
+        hand_list.append(Hand([int(hand) if hand.isnumeric() else VALUES_1[hand] for hand in hand_str], getType(hand_str), int(line.split()[1]), 0))
 
     hand_list_sorted = sorted(hand_list)
     result = 0
@@ -110,7 +111,7 @@ if __name__ == "__main__":
     for line in lines:
         hand_str = line.split()[0]
         card_type, js = getTypePart2(hand_str)
-        hand_list.append(Hand([int(hand) if hand.isnumeric() else values_part2[hand] for hand in hand_str], card_type, int(line.split()[1]), js))
+        hand_list.append(Hand([int(hand) if hand.isnumeric() else VALUES_2[hand] for hand in hand_str], card_type, int(line.split()[1]), js))
 
     hand_list_sorted = sorted(hand_list)
     result = 0

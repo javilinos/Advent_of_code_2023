@@ -3,8 +3,10 @@ def readLines(filename):
         lines = f.readlines()
     return lines
 
+
 def stringToList(string):
     return list(string)
+
 
 if __name__ == "__main__":
     lines = readLines("input2.txt")
@@ -32,9 +34,10 @@ if __name__ == "__main__":
                     copies += 1
         part1_sum += local_sum
         local_sum = 0
-        
+
     print(f"part1 result: {part1_sum}")
     sum = 0
     for copy in n_copies_list:
-        sum+=copy
+        sum += copy
+        
     print(f"part2 result: {sum}")

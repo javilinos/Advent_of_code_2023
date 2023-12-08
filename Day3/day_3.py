@@ -47,7 +47,7 @@ if __name__ == "__main__":
             if checkPose(pose, lines_matrix):
                 sum += int(num_poses_[0])
                 break
-    print(sum)
+    print(f"part1: {sum}")
     sum = 0
     start_list = {}
     for i, num_poses_ in enumerate(num_poses):
@@ -60,4 +60,4 @@ if __name__ == "__main__":
                     start_list[star_pose].append(num_poses_[0])
                     sum += int(start_list[star_pose][0])*int(start_list[star_pose][1])
                 break
-    print(sum)
+    print(f"part2: {sum}")

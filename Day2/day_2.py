@@ -8,7 +8,7 @@ if __name__ == '__main__':
     data = {}
     condition = [12, 13, 14]
     lines = readLines("input.txt")
-    # part 1
+    
     for line in lines:
         game = line.split(":")
         game_number = int(game[0].split("Game")[1])
@@ -32,6 +32,6 @@ if __name__ == '__main__':
         if values[0] <= condition[0] and values[1] <= condition[1] and values[2] <= condition[2]:
             sum_days += day
         sum_mul_values += values[0]*values[1]*values[2]
-    print(sum_days)
-    print(sum_mul_values)
+    print(f"part1: {sum_days}")
+    print(f"part2: {sum_mul_values}")
     
