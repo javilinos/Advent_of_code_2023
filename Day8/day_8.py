@@ -1,19 +1,12 @@
 from dataclasses import dataclass
 import numpy as np
-from math import gcd
+from math import lcm
 
 
 def readLines(filename):
     with open(filename, "r") as f:
         lines = f.readlines()
     return lines
-
-
-def leastCommonMultiple(values):
-    ret = 1
-    for x in values:
-        ret = (x * ret) // gcd(x,ret)
-    return ret
 
 
 @dataclass
@@ -86,4 +79,4 @@ if __name__ == "__main__":
         if finished:
             break
     
-    print(f"part2: {leastCommonMultiple(common_multiple_dict.values())}")
+    print(f"part2: {lcm(*common_multiple_dict.values())}")
